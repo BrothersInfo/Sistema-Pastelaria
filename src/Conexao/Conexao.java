@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexao {
     
-    public static String     Driver  = "com.mysql.jdbc.Driver";
+    public static String     Driver  = "com.mysql.jdbc.Drive";
     public static String     Banco   = "Igreja";
     public static String     Caminho = "jdbc:mysql://localhost:3306/" + Banco;
     public static String     Usuario = "root";
