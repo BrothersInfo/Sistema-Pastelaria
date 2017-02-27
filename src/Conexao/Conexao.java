@@ -21,7 +21,7 @@ public class Conexao {
     public static String     Banco   = "Igreja";
     public static String     Caminho = "jdbc:mysql://localhost:3306/" + Banco;
     public static String     Usuario = "root";
-    public static String     Senha   = "root";
+    public static String     Senha   = "";
     public static Connection Conexao = null;
     
     public static Connection getConexao() throws SQLException {
