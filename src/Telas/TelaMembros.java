@@ -66,6 +66,7 @@ public class TelaMembros extends javax.swing.JDialog {
         jtxtCPF.setEnabled(false);
         jtxtRG.setEnabled(false);
         comboEstado.setEnabled(false);
+        btnFoto.setEnabled(false);
     }
         private void habilitaCampos() {
         txtCargo.setEnabled(true);
@@ -86,6 +87,7 @@ public class TelaMembros extends javax.swing.JDialog {
         jtxtCPF.setEnabled(true);
         jtxtRG.setEnabled(true);
         comboEstado.setEnabled(true);
+        btnFoto.setEnabled(true);
     }
     
     /**
@@ -134,7 +136,7 @@ public class TelaMembros extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         lblFoto = new javax.swing.JLabel();
         btnFoto = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
+        lblMatricula = new javax.swing.JLabel();
         btnNovo = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
@@ -241,8 +243,8 @@ public class TelaMembros extends javax.swing.JDialog {
                 .addComponent(btnFoto))
         );
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel19.setText(" Matricula: ");
+        lblMatricula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblMatricula.setText(" Matricula: ");
 
         btnNovo.setText("NOVO");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -379,7 +381,7 @@ public class TelaMembros extends javax.swing.JDialog {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(lblMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -487,7 +489,7 @@ public class TelaMembros extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
+                        .addComponent(lblMatricula)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
@@ -576,6 +578,7 @@ public class TelaMembros extends javax.swing.JDialog {
                         Logger.getLogger(TelaMembros.class.getName()).log(Level.SEVERE, null, ex);
                      }
                     }
+                    lblMatricula.setText("Matricula: "+String.valueOf(membro.getCodigo()));
                     if(membro.getDataExpedicao() == null) {
                         txtDataExpedicao.setDate(null);
                     } else {
@@ -656,6 +659,7 @@ public class TelaMembros extends javax.swing.JDialog {
                         Logger.getLogger(TelaMembros.class.getName()).log(Level.SEVERE, null, ex);
                      }
                     }
+                    lblMatricula.setText("Matricula: "+String.valueOf(membro.getCodigo()));
                     if(membro.getNascimento() == null) {
                         txtDataNascimento.setDate(null);
                     } else {
@@ -827,6 +831,8 @@ public class TelaMembros extends javax.swing.JDialog {
         comboEstado.setSelectedIndex(0);
         lblFoto.setIcon(null);
         txtProcurar.setText("");
+        btnFoto.setText("SELECIONAR FOTO");
+        lblMatricula.setText("Matricula:");
     }
     
     private void selecionarFoto() {
@@ -908,7 +914,6 @@ public class TelaMembros extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -923,6 +928,7 @@ public class TelaMembros extends javax.swing.JDialog {
     private javax.swing.JTextField jtxtCPF;
     private javax.swing.JTextField jtxtRG;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblMatricula;
     private javax.swing.JTextField txtCargo;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCongregacao;

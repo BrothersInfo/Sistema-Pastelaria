@@ -169,6 +169,90 @@ public class MembroDAO {
         return listaMembros;
     }
     
+    public List<Membro> buscaPorData(String data) {
+        
+        Membro membro = null;
+        List<Membro> listaMembros = new ArrayList<>();
+        String sql = "SELECT * FROM membros WHERE nascimento = '"+data+"'";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            ps = Conexao.Conexao.getConexao().prepareStatement(sql);
+            //ps.setString(1, parteNome);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                membro = new Membro();
+                membro.setCargo(rs.getString("cargo"));
+                membro.setCidade(rs.getString("cidade"));
+                membro.setCodigo(rs.getInt("codigo"));
+                membro.setCongregacao(rs.getString("congregacao"));
+                membro.setCpf(rs.getString("cpf"));
+                membro.setDataBatismo(rs.getString("dataBatismo"));
+                membro.setDataExpedicao(rs.getString("dataExpedicao"));
+                membro.setDataValidade(rs.getString("dataValidade"));
+                membro.setEstado(rs.getString("estado"));
+                membro.setEstadoCivil(rs.getString("estadoCivil"));
+                membro.setFoto(rs.getBytes("fotoMembro"));
+                membro.setLocalBatismo(rs.getString("localBatismo"));
+                membro.setMae(rs.getString("mae"));
+                membro.setNacionalidade(rs.getString("nacionalidade"));
+                membro.setNascimento(rs.getString("nascimento"));
+                membro.setNatural(rs.getString("naturalidade"));
+                membro.setNome(rs.getString("nome"));
+                membro.setObservacoes(rs.getString("observacoes"));
+                membro.setPai(rs.getString("pai"));
+                membro.setRg(rs.getString("rg"));
+                listaMembros.add(membro);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar membros!\n"+ex.toString(),"Atenção",JOptionPane.WARNING_MESSAGE);
+        }
+        return listaMembros;
+    }
+    
+    public List<Membro> buscaPorDataSelecionada(String data, String data1) {
+        
+        Membro membro = null;
+        List<Membro> listaMembros = new ArrayList<>();
+        String sql = "SELECT * FROM membros WHERE STR_TO_DATE(nascimento, '%d/%m/%Y') >= '"+data+"' AND STR_TO_DATE(nascimento, '%d/%m/%Y') <= '"+data1+"'"; 
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            ps = Conexao.Conexao.getConexao().prepareStatement(sql);
+            //ps.setString(1, parteNome);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                membro = new Membro();
+                membro.setCargo(rs.getString("cargo"));
+                membro.setCidade(rs.getString("cidade"));
+                membro.setCodigo(rs.getInt("codigo"));
+                membro.setCongregacao(rs.getString("congregacao"));
+                membro.setCpf(rs.getString("cpf"));
+                membro.setDataBatismo(rs.getString("dataBatismo"));
+                membro.setDataExpedicao(rs.getString("dataExpedicao"));
+                membro.setDataValidade(rs.getString("dataValidade"));
+                membro.setEstado(rs.getString("estado"));
+                membro.setEstadoCivil(rs.getString("estadoCivil"));
+                membro.setFoto(rs.getBytes("fotoMembro"));
+                membro.setLocalBatismo(rs.getString("localBatismo"));
+                membro.setMae(rs.getString("mae"));
+                membro.setNacionalidade(rs.getString("nacionalidade"));
+                membro.setNascimento(rs.getString("nascimento"));
+                membro.setNatural(rs.getString("naturalidade"));
+                membro.setNome(rs.getString("nome"));
+                membro.setObservacoes(rs.getString("observacoes"));
+                membro.setPai(rs.getString("pai"));
+                membro.setRg(rs.getString("rg"));
+                listaMembros.add(membro);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar membros!\n"+ex.toString(),"Atenção",JOptionPane.WARNING_MESSAGE);
+        }
+        return listaMembros;
+    }
+    
     
     public List<Membro> buscarTodosMembros() {
         
